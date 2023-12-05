@@ -104,7 +104,7 @@ def up_date_theta(theta,pi,s_a_history):
                 SA_ij=[SA for SA in s_a_history if SA==[i,j]]#取出状态i下应采取的动作j
                 N_i=len(SA_i)#状态下动作的总次数
                 N_ij=len(SA_ij)#状态i下采取动作j的次数
-                delta_theta[i,j]=(N_ij-pi[i,j]*N_i)/T
+                delta_theta[i,j]=(N_ij-pi[i,j]*N_i)/T     #更新规则
     new_theta=theta+eta*delta_theta
     return new_theta
 
@@ -141,7 +141,7 @@ def goal_maze_ret_s_a(pi):
 # pi=softmax_convert_into_pi_from_theta(new_theta)
 # print(pi)
 
-# 主程序实习
+# 主程序实现
 stop_epsilon = 10**-4  #变化策略小于10^-4则结束学习
 
 theta=theta_0
